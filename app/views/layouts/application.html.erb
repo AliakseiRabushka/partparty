@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PartParty</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+
+  <body class="bg-gray-100 font-sans">
+    <header class="bg-black text-white">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="text-xl font-bold">PartParty</div>
+        <nav class="flex items-center gap-6" x-data="{ open: null }">
+          <div @mouseenter="open = 'atv'" @mouseleave="open = null" class="relative">
+            <button class="hover:text-red-500">ATV/UTV</button>
+            <div x-show="open === 'atv'" class="absolute left-0 mt-2 w-64 bg-white text-black shadow-lg rounded z-50">
+              <ul class="p-4 space-y-2">
+                <li><a href="#" class="hover:text-red-600 block">Tires & Wheels</a></li>
+                <li><a href="#" class="hover:text-red-600 block">Body</a></li>
+                <li><a href="#" class="hover:text-red-600 block">Racks</a></li>
+                <li><a href="#" class="hover:text-red-600 block">Drive</a></li>
+                <li><a href="#" class="hover:text-red-600 block">Helmets</a></li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="hover:text-red-500">Automotive</a>
+          <a href="#" class="hover:text-red-500">Cruiser</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <input type="text" placeholder="Поиск..." class="px-2 py-1 rounded text-black bg-white">
+          <a href="/cart_items" class="hover:text-red-400">Корзина</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-5 py-6">
+      <%= yield %>
+    </main>
+  </body>
+</html>

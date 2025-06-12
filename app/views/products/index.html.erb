@@ -1,0 +1,38 @@
+<div class="p-6" x-data="{ open: false }">
+  <h1 class="text-xl font-bold mb-4">Каталог товаров</h1>
+
+  <button class="bg-gray-800 text-white px-4 py-2 rounded" @click="open = !open">Меню</button>
+  <div x-show="open" class="bg-white border rounded p-4 mt-2 shadow">
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <h2 class="font-bold mb-1">Бренды</h2>
+        <ul>
+          <% @brands.each do |brand| %>
+            <li><%= link_to brand.name, root_path(brand_id: brand.id), class: "text-blue-600 hover:underline" %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-bold mb-1">Категории</h2>
+        <ul>
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, root_path(category_id: category.id), class: "text-blue-600 hover:underline" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+    <% @products.each do |product| %>
+      <div class="border p-2 rounded">
+        <% if product.image.attached? %>
+          <%= image_tag product.image, class: "w-full h-32 object-cover" %>
+        <% end %>
+        <h2 class="text-lg font-semibold"><%= product.name %></h2>
+        <p><%= number_to_currency(product.price) %></p>
+        <%= link_to 'Подробнее', product_path(product), class: "text-blue-500" %>
+      </div>
+    <% end %>
+  </div>
+</div>

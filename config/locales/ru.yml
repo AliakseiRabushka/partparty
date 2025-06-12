@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      product: "Товар"
+    attributes:
+      product:
+        name: "Название"
+        price: "Цена"
+        description: "Описание"
+        sku: "Артикул"
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      update: "Обновить %{model}"
+  cart:
+    title: "Корзина"
+    empty: "Ваша корзина пуста"
+    add: "Добавить в корзину"
