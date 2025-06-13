@@ -15,7 +15,9 @@
   <body class="bg-gray-100 font-sans">
     <header class="bg-black text-white">
       <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-        <div class="text-xl font-bold">PartParty</div>
+        <div class="text-xl font-bold">
+          <%= link_to "PartParty", root_path, class: "hover:text-red-400" %>
+        </div>
         <nav class="flex items-center gap-6" x-data="{ open: null }">
           <div @mouseenter="open = 'atv'" @mouseleave="open = null" class="relative">
             <button class="hover:text-red-500">ATV/UTV</button>
