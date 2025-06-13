@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :products
   resources :cart_items, only: [:index, :create, :update, :destroy]
 
+  get 'pages/*path', to: 'pages#show', as: :builder_page
+
   namespace :admin do
     resources :products
   end
